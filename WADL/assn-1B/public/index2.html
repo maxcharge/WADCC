@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function () {
+        console.log("document loaded");
+
+        let rData = localStorage.getItem("data");
+        const data = JSON.parse(rData);
+        console.log(data);
+        showDetails(data);
+      });
+
+      function showDetails(data) {
+        document.getElementById("username").innerHTML = data["username"];
+        document.getElementById("password").innerHTML = data["password"];
+      }
+
+      function logout() {
+        localStorage.clear();
+        window.location.href = "/";
+      }
+    </script>
+    <script></script>
+
+    <p>Logged In User Details</p>
+
+    <h4>Username :</h4>
+    <div id="username">Logged In username</div>
+
+    <br />
+    <h4>Password :</h4>
+    <div id="password">Logged in Password</div>
+
+    <button id="demo" onclick="logout()">Logout</button>
+  </body>
+</html>
